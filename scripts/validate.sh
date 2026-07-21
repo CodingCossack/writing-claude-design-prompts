@@ -44,7 +44,9 @@ if find . -path ./.git -prune -o -type l -print | rg -q .; then
   exit 1
 fi
 
-if git ls-files | rg -i '(^|/)(work|outputs|evals|docs/superpowers)(/|$)'; then
+if find . -path ./.git -prune -o -type f -print \
+  | sed 's#^\./##' \
+  | rg -i '(^|/)(work|outputs|evals|docs/superpowers)(/|$)'; then
   printf 'internal development artefact found in tracked paths\n' >&2
   exit 1
 fi
