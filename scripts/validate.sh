@@ -11,9 +11,6 @@ command -v rg >/dev/null 2>&1 || {
 
 required=(
   SKILL.md
-  references/brief-patterns.md
-  references/evaluation-rubric.md
-  references/source-map.md
   agents/openai.yaml
   README.md
   CONTRIBUTING.md
@@ -33,11 +30,9 @@ done
 word_count="$(wc -w < SKILL.md | tr -d ' ')"
 (( word_count <= 500 )) || { printf 'SKILL.md exceeds 500 words: %s\n' "$word_count" >&2; exit 1; }
 
-rg -Fq '`references/brief-patterns.md`' SKILL.md || { printf 'SKILL.md does not route to brief patterns\n' >&2; exit 1; }
-rg -Fq '`references/evaluation-rubric.md`' SKILL.md || { printf 'SKILL.md does not route to evaluation rubric\n' >&2; exit 1; }
 rg -Fq '$writing-claude-design-prompts' agents/openai.yaml || { printf 'openai.yaml default prompt does not name the skill\n' >&2; exit 1; }
-rg -Fq 'Do not request test inspection' SKILL.md || { printf 'test-inspection boundary is missing\n' >&2; exit 1; }
-rg -Fq 'non-visual engineering task' SKILL.md || { printf 'non-visual routing guard is missing\n' >&2; exit 1; }
+rg -Fq 'Use the installed `design` skill' SKILL.md || { printf 'design-router handoff is missing\n' >&2; exit 1; }
+rg -Fq 'Write a creative commission' SKILL.md || { printf 'creative-commission principle is missing\n' >&2; exit 1; }
 
 if find . -path ./.git -prune -o -type l -print | rg -q .; then
   printf 'repository payload must not contain symlinks\n' >&2

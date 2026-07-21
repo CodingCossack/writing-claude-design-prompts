@@ -4,9 +4,9 @@
 [![Agent Skill](https://img.shields.io/badge/Agent%20Skill-compatible-111827)](https://agentskills.io/)
 [![MIT License](https://img.shields.io/badge/license-MIT-2563eb)](LICENSE)
 
-An agent-agnostic Agent Skill for writing focused Claude Opus and Fable prompts for frontend design, UI/UX, visual redesigns, design systems, prototypes and image-to-code work.
+An agent-agnostic Agent Skill for turning product intent into visually literate Claude Opus and Fable commissions for frontend design, UI/UX, visual redesigns, design systems, prototypes and image-to-code work.
 
-It prevents premium design-model sessions from being consumed by test inspection, CI, build assurance, backend repair, deployment or production verification. The design model receives the visual problem: product truth, direction, composition, typography, colour, interaction, responsive states, implementation, rendering and screenshot iteration. Cheaper engineering agents can prepare the workspace and prove integration separately.
+It uses the installed `design` skill for route-specific judgement, then expresses the result as a positive creative commission: the person, product truth, desired experience, visual direction, representative content and states, implementation, rendering and refinement. Unrelated engineering assurance remains outside the design commission without becoming a wall of prohibitions.
 
 ## Install
 
@@ -71,14 +71,14 @@ Use $writing-claude-design-prompts to turn these product notes into a Fable miss
 ```
 
 ```text
-Use $writing-claude-design-prompts to separate this mixed programme into preparation, Claude visual production and Codex engineering closure.
+Use $writing-claude-design-prompts to turn these programme notes into a focused Fable design commission.
 ```
 
 ```text
 Use $writing-claude-design-prompts to review this Opus frontend prompt and remove work that does not advance the visible result.
 ```
 
-It does not intercept non-visual Claude engineering tasks. It also does not require every design prompt to hold a workshop: one owner choice is used only when the direction is materially open; otherwise the model chooses and implements.
+It does not intercept non-visual Claude engineering tasks. When the visual direction is open, it gives the design model enough context to choose a coherent direction and commit to it.
 
 ## What it optimises
 
@@ -86,36 +86,18 @@ It does not intercept non-visual Claude engineering tasks. It also does not requ
 - Frontend design, UI/UX, design systems, redesigns, prototypes and image-to-code.
 - Concrete composition, typography, colour, material, density, imagery, motion and interaction language.
 - Realistic states, responsive viewports, rendering, screenshot comparison and visual iteration.
-- Clean division between premium visual production and lower-cost engineering assurance.
+- Positive design direction rather than engineering-goal scaffolding or prohibition lists.
 - Fidelity when screenshots, mock-ups or Figma frames are approved sources of truth.
-
-## Mission allocation
-
-| Mission | Owns |
-|---|---|
-| Preparation | Product truth, relevant files, working preview, representative data, screenshots, assets and constraints |
-| Claude visual production | Direction, visual implementation, rendering, inspection, screenshots and iteration |
-| Engineering closure | Tests, CI, builds, backend/data integration, formal audits, deployment and production proof |
 
 ## Structure
 
 ```text
 .
 ├── SKILL.md
-├── agents/openai.yaml
-└── references/
-    ├── brief-patterns.md
-    ├── evaluation-rubric.md
-    └── source-map.md
+└── agents/openai.yaml
 ```
 
-`SKILL.md` contains the routing and allocation contract. The brief patterns and evaluation rubric are loaded only when needed. The source map records the official guidance and the skill-specific synthesis.
-
-## Source grounding
-
-- [Claude prompting best practices](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices)
-- [Claude prompt-engineering overview](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview)
-- [Agent Skills specification](https://agentskills.io/specification)
+`SKILL.md` contains the complete commissioning guidance. Design doctrine remains in the separate `design` router and its route-specific resources.
 
 ## Contributing
 
