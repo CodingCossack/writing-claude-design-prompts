@@ -1,0 +1,7 @@
+interface:
+  display_name: "Writing Claude Design Prompts"
+  short_description: "Write design-focused Claude and Fable prompts"
+  default_prompt: "Use $writing-claude-design-prompts to turn this visual brief into a focused Claude design prompt."
+
+policy:
+  allow_implicit_invocation: true
